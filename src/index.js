@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import BTN from './lib/button'
+import ShoppingList from '../src/lib/shoppingList'
+import Borar from './lib/Borar'
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
-
 ReactDOM.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
-  // document.getElementById('root')
-  <h1>Hello, world!</h1>,
+  
+  <React.StrictMode>
+    <BTN />
+    <ShoppingList name = 'zzx'/>
+    <Borar />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
