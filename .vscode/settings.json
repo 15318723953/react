@@ -1,0 +1,12 @@
+{
+    "[json]": {
+        "typescript.tsdk":"node_modules\\typescript\\lib",
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "gitlens.codeLens.scopes": [
+            "document"
+        ]
+    }
+}

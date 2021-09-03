@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .title {
+        background: #ccc;
+    }
+</style>
+
+<body>
+    <div id="test"></div>
+
+    <script type="text/babel">
+    // 一定注意区分:js语句和js表达式
+        //1.表达式:一个表达式会差生一个值,可以放在任何一个需要值的地方
+        //2.语句(代码)
+            // 1.if(){}
+            // 2.for(){}
+            // 3.switch(){case}
+    const arr = ['angular','react','vue']
+    const obj = {name:'1',name2:'2',name3:'3'}
+        const VDOM = (
+            <div>
+                <h2>前段js框架展示</h2>
+                <ul>
+                    {
+                     arr.map(item =>{
+                         return <li key={item}>{item}</li>
+                     })
+                    }
+                </ul>
+            </div>
+        )
+        ReactDOM.render(VDOM,document.querySelector('#test'))
+    </script>
+</body>
+
+</html>
