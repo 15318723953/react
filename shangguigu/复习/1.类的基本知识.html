@@ -42,6 +42,15 @@
                 console.log('我很努力的学习')
             }
         }
+        class Car {
+            constructor(name,price){
+                this.name = name;
+                this.price = price; 
+            }
+            // 类里面可以直接写赋值语句,相当于想实例对象上添加一个属性,名为wheel值为4
+            wheel = 4
+        }
+        const c1 = new Car('asd',199)
         const s1 = new Student('小郑',15,'高一')
         console.log(s1)
         s1.speak()

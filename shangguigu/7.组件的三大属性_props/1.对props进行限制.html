@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .title {
+        background: #ccc;
+    }
+</style>
+
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+    <script type="text/babel">
+        // 1.创建类式组件
+        
+        class Dome extends React.Component {
+            // 初始化状态
+            render() {
+                console.log(PropTypes)
+                return (
+                    <div>
+                       <ul>
+                           <li>姓名:{this.props.name}</li>
+                           <li>性别:{this.props.sex}</li>
+                           <li>年龄:{this.props.age + 1}</li>
+                       </ul>
+                    </div>
+                )
+            }
+           
+        }
+        // props是只读的
+        // 对标签默认值进行类型.必要性的限制
+        Dome.propTypes = {
+            name:PropTypes.string.isRequired,
+            age:PropTypes.number,
+            sex:PropTypes.string,
+            speak:PropTypes.func,//指定为方法时,为func
+        }
+        // 对标签属性进行默认设置
+        Dome.defaultProps = {
+            sex : '不男不女',
+            age :18
+        }
+        // 渲染组件到页面
+        ReactDOM.render(<Dome name='tom' age={18} speak={speak} sex='女'/>, document.querySelector('#test1'))
+        ReactDOM.render(<Dome name='按时' age={38} sex='女'/>, document.querySelector('#test2'))
+        const p = {
+            name:'老刘',
+            
+        }
+        // ReactDOM.render(<Dome name='t人' age='28' sex='男'/>, document.querySelector('#test3'))
+        ReactDOM.render(<Dome {...p}/>, document.querySelector('#test3'))
+        function speak(){
+            console.log('我说话了')
+        }
+    </script>
+</body>
+
+</html>
