@@ -23,6 +23,8 @@
         // 1.创建类式组件
         class Dome extends React.Component {
             render(){
+                // render 放在类的原型对象上,供实例使用
+                console.log(this)
                 return (
                     <div>
                         我是类定义的组件(适用于复杂组件)的定义
@@ -32,6 +34,9 @@
         }
         // 渲染组件到页面
         ReactDOM.render(<Dome/>, document.querySelector('#test'))
+        // 1.react解析自检时标签,找到了dome组件
+        // 2.发现组件是使用类定义的,随后new出来该实例,并通过该实例摁掉用到原型上的render方法
+        // 3.蒋render返回的虚拟dom转化为真实dom,随后呈现在页面上
     </script>
 </body>
 
