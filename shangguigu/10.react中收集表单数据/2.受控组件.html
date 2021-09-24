@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .title {
+        background: #ccc;
+    }
+</style>
+
+<body>
+    <div id="test1"></div>
+    <script type="text/babel">
+        // 1.创建类式组件
+
+        class Login extends React.Component {
+            handleSubmit = (event) => {
+                event.preventDefault();
+                alert(this.state.userName+this.state.passWord)
+            }
+            state = {
+                userName:'',
+                passWord:''
+            }
+            saveUserName = (e) => {
+                console.log(e.target.value)
+                this.setState({ userName: e.target.value })
+            }
+            savePassWord = (e)=>{
+                this.setState({ passWord: e.target.value })
+            }
+            render() {
+                return (
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            用户名:<input onChange={this.saveUserName} type="text" name='username' />
+                            密码:<input onChange={this.savePassWord} type="password" name='password' />
+                            <button>登陆</button>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+
+        // 渲染组件到页面
+        ReactDOM.render(<Login />, document.querySelector('#test1'))
+    </script>
+</body>
+
+</html>
