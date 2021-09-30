@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+    <script type="text/babel">
+        // 1.初始化阶段:由ReactDom.render()触发 --- 初次渲染
+            // 1.constructor()
+            // 2.componentWillMount()
+            // 3.render()
+            // 4.componentDidMount()
+        // 2.更新阶段:又组建内部this.setState()或父组件render触发
+            // 1.componentWillReceiveProps()
+            // 2.shouldComponentUpdate()
+            // 3.componentWillUpdate()
+            // 4.render()
+            // 5.componentDidUpdate()
+        // 3.卸载组件:由ReactDOM.unmountComponentAtNode()触发
+            // 1.componentWillUnmount()
+            class Count extends React.Component {
+
+            constructor(props) {
+                console.log('count-constructor')
+                super(props)
+            }
+            //初始化状态
+            state = {
+                count: 0
+            }
+            add = () => {
+                // 获取原状态
+                const { count } = this.state;
+                this.setState({ count: count + 1 })
+            }
+            death = () => {
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+            force = () => {
+                this.forceUpdate()
+            }
+            // 组件将要挂在
+            componentWillMount() {
+                console.log('count-componentWillMount')
+            }
+            // 组件挂在完成
+            componentDidMount() {
+                console.log('count-componentDidMount')
+
+            }
+            // 控制组件更新的阀门
+            shouldComponentUpdate() {
+                console.log('count-shouldComponentUpdate')
+                return true
+            }
+            // 组件将要更新
+            componentWillUpdate() {
+                console.log('count-componentWliiUpdate')
+            }
+            // 组件更新完毕
+            componentDidUpdate() {
+                console.log('count-componentDidUpdate')
+            }
+            // 组件将要卸载
+            componentWillUnmount() {
+                console.log('count-componentWillUnmount')
+            }
+            render() {
+                console.log('count-render')
+                return (
+                    <div>
+                        <h2>当前求和为{this.state.count}</h2>
+                        <button onClick={this.add}>点我+1</button>
+                        <button onClick={this.death}>卸载组件</button>
+                        <button onClick={this.force}>不更改任何状态中的数据,刷新一下</button>
+                    </div>
+                )
+            }
+        }
+        //父组件
+        class A extends React.Component {
+            state = {
+                carName: '奔驰'
+            }
+            changeCar = () => {
+                this.setState({ carName: '奥拓' })
+            }
+            render() {
+                return (
+                    <div>
+                        我是A组件
+                        <button onClick={this.changeCar}>换车</button>
+                        <B carName={this.state.carName} />
+                    </div>
+                )
+            }
+        }
+        //子组件
+        class B extends React.Component {
+            // 组件将要接收新的rops
+            componentWillReceiveProps() {
+                console.log('b---componentWillReceiveProps')
+            }
+            shouldComponentUpdate(){
+                console.log('b---shouldComponentUpdate')
+                return true
+            }
+            componentWillUpdate(){
+                console.log('b---componentWillUpdate')
+            }
+            componentDidUpdate(){
+                console.log('b---componentDidUpdate')
+            }
+            render() {
+                return (
+                    <div>
+                        我是b组件接受到的车是:{this.props.carName}
+                    </div>
+                )
+            }
+        }
+       
+        ReactDOM.render(<A />, document.querySelector('#test'))
+    </script>
+</body>
+
+</html>
