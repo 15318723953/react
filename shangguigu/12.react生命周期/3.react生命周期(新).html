@@ -17,9 +17,21 @@
 
     </div>
     <script type="text/babel">
+        // 1.初始化阶段:由ReactDOM.render()触发 --初次渲染
+            // 1. constructor()
+            // 2. getDerivedStateFromPrpos
+            // 3. render()
+            // 4. componentDDidMount()
+        // 2. 更新阶段:又组建内部this.setState()或父组件重新渲染render触发
+            // 1. getDerivedStateFormProps
+            // 2. shouldComponentUpdate()
+            // 3. render()
+            // 3. getSnapshotBeforeUpdate()
+            // 4. componentDDidMount()
+        // 3. 卸载组件
+            // 1. componentWillUnmount()
 
         class Count extends React.Component {
-
             constructor(props) {
                 console.log('count-constructor')
                 super(props)
@@ -40,8 +52,8 @@
                 this.forceUpdate()
             }
             // 若state的值任何时候都取决与props,那么可以使用
-            static getDerivedStateFromProps(props,state) {
-                console.log('count-getDerivedStateFromProps',props,state)
+            static getDerivedStateFromProps(props, state) {
+                console.log('count-getDerivedStateFromProps', props, state)
                 return null
             }
             // 组件挂在完成
@@ -54,13 +66,14 @@
                 console.log('count-shouldComponentUpdate')
                 return true
             }
-            getSnapshotBeforeUpdate(){
+            // 组件更新完毕之前的钩子
+            getSnapshotBeforeUpdate() {
                 console.log('getSnapshotBeforeUptate')
                 return null
             }
             // 组件更新完毕
-            componentDidUpdate(preProps,preState) {
-                console.log('count-componentDidUpdate',a,b)
+            componentDidUpdate(preProps, preState) {
+                console.log('count-componentDidUpdate', a, b)
             }
             render() {
                 console.log('count-render')
@@ -76,7 +89,7 @@
         }
         //父组件
 
-        ReactDOM.render(<Count name='tom'/>, document.querySelector('#test'))
+        ReactDOM.render(<Count name='tom' />, document.querySelector('#test'))
     </script>
 </body>
 

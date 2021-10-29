@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="test"></div>
+    <script type="text/babel">
+        // 1. react/vue中的key有什么作用?(key的内部原理是什么)
+        // 2.为什么遍历磊表示,key不要用index?
+        /* 
+            1.虚拟dom中key的作用
+                1.简单来说:key是虚拟dom对象的标识,在更新显示key起着极其重要的作用
+                2.详细的说:当状态中的数据发生变化时,react会根据新数据生成新的虚拟dom
+                          随后React进行新虚拟dom与旧虚拟dom的diff比较,比较规则如下
+                          a.旧虚拟dom中找到了与新的虚拟dom相同的key
+                            1.若虚拟dom内容没有改变,则直接使用之前的真实dom
+                            2.若虚拟dom中的内容变了,则生成新的真实dom,随后替换掉页面中的真实dom
+                          b.旧虚拟dom未找到与新虚拟dom相同的key
+                            根据数据生成新的真实dom,替换掉页面中的真实dom
+        */
+
+        class Person extends React.Component{
+            state = {
+                person:[
+                    {id:1,name:'小张',age:18},
+                    {id:2,name:'小李',age:19}
+                ]
+            }
+            add = ()=>{
+                const {person} = this.state
+                const p = {id:person.length+1,name:'小王',age:20}
+                this.setState({
+                    person:[p,...person]
+                })
+            }
+            render(){
+                return (
+                    <div>
+                        <h2>展示人员信息</h2>
+                        <button onClick={this.add}>添加一个小王</button>
+                        <ul>
+                            {
+                                this.state.person.map((personObj,index)=>{
+                                    return <li key={index}>{personObj.name} ------ {personObj.age}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Person/>,document.querySelector('#test'))
+    </script>
+</body>
+</html>
