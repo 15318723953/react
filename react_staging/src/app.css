@@ -1,0 +1,29 @@
+.app{
+    width: 50%;
+    margin: 50px auto;
+}
+.app input{
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    line-height: 30px;
+}
+.app button{
+    min-width: 80px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    margin-left: 2%;
+}
+.app ul{
+    list-style: none;
+}
+.app ul li{
+    float: left;
+    width: 30%;
+    margin-left: 3%;
+}
+.app ul li img{
+    width: 100%;
+}
