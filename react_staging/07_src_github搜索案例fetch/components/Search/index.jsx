@@ -39,7 +39,6 @@ class Search extends Component {
             console.log(err)
             PubSub.publish('getList', { isLoading: false, err: err.message })
         }
-
     }
 
 
