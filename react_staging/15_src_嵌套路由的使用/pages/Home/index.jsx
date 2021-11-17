@@ -7,6 +7,7 @@ import MyNavLink from '../../components/MyNavLink'
 
 class Home extends Component {
     render() {
+        console.log(this)
         return (
             <div>
                 <h2>home</h2>

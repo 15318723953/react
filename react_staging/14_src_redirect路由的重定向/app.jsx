@@ -7,8 +7,6 @@ import MyNavLink from './components/MyNavLink'
 
 import './app.css'
 
-
-
 class app extends Component {
     render() {
         return (
