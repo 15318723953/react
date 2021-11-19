@@ -10,33 +10,8 @@ class Message extends Component {
             { id: 3, message: '消息3' }
         ]
     }
-    replaceShow = (id, message) => {
-        return () => {
-            this.props.history.replace({
-                pathname: '/home/message/detail',
-                state: {
-                    id, 
-                    message
-                }
-            })
-        }
 
-    }
-    pushShow = (id, message) => {
-        return () => {
-            this.props.history.push({
-                pathname: '/home/message/detail',
-                state: {
-                    id, 
-                    message
-                }
-            })
-        }
-
-    }
-   
     render() {
-        console.log(this.props)
         const { messageArr } = this.state
         return (
             <div>
@@ -52,15 +27,12 @@ class Message extends Component {
                                 {/* <Link to={`/home/message/detail/?id=${item.id}&message=${item.message}`}>{item.message}</Link> */}
 
                                 {/* 向路由组件传递state参数  replace 打开replace模式*/}
-                                <Link to={{ pathname: '/home/message/detail', state: { id: item.id, message: item.message } }}>{item.message}</Link>
-                                <button onClick={this.pushShow(item.id, item.message)}>push跳转</button>
-                                <button onClick={this.replaceShow(item.id, item.message)}>replace跳转</button>
-
+                                <Link replace to={{ pathname: '/home/message/detail', state: { id: item.id, message: item.message } }}>{item.message}</Link>
                             </li>
                         })
                     }
                 </ul>
-                   
+
                 {/* 声明接收params参数*/}
                 {/* <Route path='/home/message/detail/:id/:message' component={Detail}></Route> */}
 

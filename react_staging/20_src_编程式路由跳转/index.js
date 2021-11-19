@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom'
 //引入app页面
 import App from './app'
 
+import { BrowserRouter } from 'react-router-dom'
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.querySelector('#root'))
 //渲染组件到页面

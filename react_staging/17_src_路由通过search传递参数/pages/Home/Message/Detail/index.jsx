@@ -18,15 +18,11 @@ class Detail extends Component {
         // const {id,message} = this.props.match.params
 
         // 接收search参数,也就是query参数
-        // const { search } = this.props.location
-        // const { id, message } = qs.parse(search.slice(1))
-
-        // 接收state参数
-        console.log(this.props.location)
-        const { id , message } = this.props.location.state|| {}
+        const { search } = this.props.location
+        const { id, message } = qs.parse(search.slice(1))
         const findResult = data.find(item =>{
             return +item.id ===  +id
-        }) || {}
+        })
         return (
             <div>
                 <ul>

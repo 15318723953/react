@@ -34,7 +34,12 @@ class Message extends Component {
         }
 
     }
-   
+    go = ()=>{
+        this.props.history.goForward()
+    }
+    back = ()=>{
+        this.props.history.goBack()
+    }
     render() {
         console.log(this.props)
         const { messageArr } = this.state
@@ -60,7 +65,8 @@ class Message extends Component {
                         })
                     }
                 </ul>
-                   
+                    <button onClick = {this.go}>前进</button>
+                    <button onClick = {this.back}>后退</button>
                 {/* 声明接收params参数*/}
                 {/* <Route path='/home/message/detail/:id/:message' component={Detail}></Route> */}
 
