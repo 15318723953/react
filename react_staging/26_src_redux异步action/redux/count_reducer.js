@@ -11,10 +11,10 @@ export default function countReducer(preState = initState, action) {
     // 根据type决定如何加工对象
     switch (type) {
         case INCREMENT: { // 如果是加
-            return preState + +data
+            return preState + data
         };
         case DECREMENT: {  // 如何是减
-            return preState - +data
+            return preState - data
         };
         default:
             return preState

@@ -1,41 +1,45 @@
 import React, { Component } from 'react';
-// 引入 connect 用于连接UI组件与redux
-import { connect } from 'react-redux'
+// 引入store 用于获取redux中的状态
+import store from '../../redux/store';
+// 引入action
+import { createDecrementAction, createIncrementAction, createIncrementAsyncAction } from '../../redux/count_action'
+class index extends Component {
 
-import { createIncrementAction, createDecrementAction, createIncrementAsyncAction } from '../../redux/actions/count'
-
-// 定义UI组件
-class Count extends Component {
+    // componentDidMount() {
+    //     // 检测redux中的状态变化,只要变化,就调用render
+    //     store.subscribe(() => {
+    //         this.setState({})
+    //     })
+    // }
 
     increment = () => {
         const { value } = this.selectNumber
         // 通知redux
-        this.props.jia(value * 1)
+        store.dispatch(createIncrementAction(value * 1))
 
     }
     decrement = () => {
         const { value } = this.selectNumber
-        this.props.jian(value * 1)
-
+        store.dispatch(createDecrementAction(value * 1))
     }
     // 奇数再加
     incrementIfOdd = () => {
+        console.log(1)
         const { value } = this.selectNumber
-        const { count } = this.props
+        const count = store.getState()
         if (count % 2 !== 0) {
-            this.props.jia(value * 1)
+            store.dispatch(createIncrementAction(value * 1))
         }
     }
     // 异步加
     incrementAsync = () => {
         const { value } = this.selectNumber
-        this.props.jiaAsync(value * 1, 500)
+        store.dispatch(createIncrementAsyncAction(value * 1, 500))
     }
     render() {
         return (
             <div>
-            <h2>我的count组件</h2>
-                <h4>当前求和为:{this.props.count}</h4>
+                <h1>当前求和为:{store.getState()}</h1>
                 <select ref={c => this.selectNumber = c} name="" id="">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -49,13 +53,5 @@ class Count extends Component {
         );
     }
 }
-//创建并暴露一个Count组件
-export default connect(
-    state => ({ count: state }),
-    // mapDispatchToProps的精简写法
-    {
-        jia: createIncrementAction,
-        jian: createDecrementAction,
-        jiaAsync: createIncrementAsyncAction
-    }
-)(Count)
+
+export default index;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // 引入 connect 用于连接UI组件与redux
 import { connect } from 'react-redux'
 
-import { createIncrementAction, createDecrementAction, createIncrementAsyncAction } from '../../redux/actions/count'
+import { createIncrementAction, createDecrementAction, createIncrementAsyncAction } from '../../redux/count_action'
 
 // 定义UI组件
 class Count extends Component {
@@ -34,8 +34,7 @@ class Count extends Component {
     render() {
         return (
             <div>
-            <h2>我的count组件</h2>
-                <h4>当前求和为:{this.props.count}</h4>
+                <h1>当前求和为:{this.props.count}</h1>
                 <select ref={c => this.selectNumber = c} name="" id="">
                     <option value="1">1</option>
                     <option value="2">2</option>
