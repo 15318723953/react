@@ -12,6 +12,7 @@ const initState = [
     // 2. 不会产生任何副作用,列如网络请求,输入和输出设备
     // 3. 不能调用Date.now()或者Math.random()等不纯的方法
 // 3. redux的reducer函数必须是一个纯函数
+
 export default function personReducer(preState = initState, action) {
     const { type, data } = action
     switch (type) {
