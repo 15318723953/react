@@ -5,7 +5,9 @@ import React, { Component } from 'react'
 // import LazyLoda from './components/2_lazyLoad'
 // import Hooks from './components/3-Hooks'
 // import Fragment from './components//4_fragment'
-import Context from './components/5_context' 
+// import Context from './components/5_context'
+// import Optimize from './components/6_optimize'
+import RenderProps from './components/7_renderProps'
 export default class App extends Component {
     render() {
         return (
@@ -13,8 +15,10 @@ export default class App extends Component {
                 {/* <SetState x={101}></SetState> */}
                 {/* <LazyLoda></LazyLoda>*/}
                 { /* <Hooks></Hooks> */}
-                {/* <Fragment /> */} 
-                <Context></Context>
+                {/* <Fragment /> */}
+                { /* <Context></Context> */}
+                { /* <Optimize></Optimize> */}
+                <RenderProps></RenderProps>
             </div>
         )
     }
