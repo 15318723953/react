@@ -7,7 +7,8 @@ import React, { Component } from 'react'
 // import Fragment from './components//4_fragment'
 // import Context from './components/5_context'
 // import Optimize from './components/6_optimize'
-import RenderProps from './components/7_renderProps'
+// import RenderProps from './components/7_renderProps'
+import ErrorBoundary from './components/8_errorBoundary/Parent'
 export default class App extends Component {
     render() {
         return (
@@ -18,7 +19,9 @@ export default class App extends Component {
                 {/* <Fragment /> */}
                 { /* <Context></Context> */}
                 { /* <Optimize></Optimize> */}
-                <RenderProps></RenderProps>
+                { /* <RenderProps></RenderProps> */}
+
+                <ErrorBoundary></ErrorBoundary>
             </div>
         )
     }
