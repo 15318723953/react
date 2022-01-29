@@ -1,0 +1,14 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "no-angle-bracket-type-assertion":false,
+        "no-console":false,
+        "array-type":false,
+        "max-classes-per-file":false
+    },
+    "rulesDirectory": []
+}

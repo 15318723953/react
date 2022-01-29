@@ -1,5 +1,5 @@
 {
-  "name": "ts",
+  "name": "ts",  
   "version": "1.0.0",
   "description": "source code of ts-learning",
   "main": "./src/index.ts",
