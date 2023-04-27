@@ -139,21 +139,21 @@
 // console.log(p)
 
 // function Point(){
-//     console.log(new.target)  // 至于使用new调用是有值
+//     console.log(new.target)  // 使用new调用时有值
 // }
 // const p = new Point()
 // const p2 = Point()
 
 // class Point{
 //     constructor(){
-//         console.log(new.target) // 至于使用new调用是有值
+//         console.log(new.target) // 使用new调用时有值 返回值为class或者构造函数
 //     }
 // }
 // const p3 = new Point()
 
 class Parent{
     constructor(){
-        console.log(new.target)  
+        console.log(new.target)  // 返回为子类而不是父类
     }
 }
 class Child extends Parent {

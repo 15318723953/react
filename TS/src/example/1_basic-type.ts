@@ -70,7 +70,7 @@ let u: undefined
 u = undefined
 // u = 23 //报错
 let n: null
-n = null
+n = undefined
 
 num = undefined
 num = null

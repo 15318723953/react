@@ -69,7 +69,7 @@
     // Symbol.isConcatSpreadable
 
     const arr = [1, 2]
-    console.log([].concat(arr, [3, 4]))  // 数组将会被扁平化,被查开合为一个数组
+    console.log([].concat(arr, [3, 4]))  // 数组将会被扁平化,被拆开合为一个数组
     arr[Symbol.isConcatSpreadable] = false
     console.log([].concat(arr, [3, 4]))  // 设置false后将不会扁平化格式为[[1,2],3,4]
 

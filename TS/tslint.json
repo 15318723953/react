@@ -8,7 +8,8 @@
         "no-angle-bracket-type-assertion":false,
         "no-console":false,
         "array-type":false,
-        "max-classes-per-file":false
+        "max-classes-per-file":false,
+        "forin":[false]
     },
     "rulesDirectory": []
 }

@@ -41,7 +41,7 @@ console.log(tomato)
 // console.log(Object.getPrototypeOf(Child) === Parent)  // 返回一个对象的原型对象或者一个类的父类
 
 // super作为函数
-// 子类的constructor中必须调用一次super,只能在constructor使用
+// 子类的constructor中必须调用一次super,只能在constructor使用，在父类中使用this时指向的是子类
 // super作为对象
 // 在普通方法中 指向 父类的原型对象
 // 在静态方法中 指向 父类
