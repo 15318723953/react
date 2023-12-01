@@ -1,0 +1,35 @@
+{
+  "files": [],
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "playwright.config.*",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ],
+  "compilerOptions": {
+    // ...
+    "target": "es5",
+    "lib": [
+      "es5",
+      "es2015.promise",
+      "es2015",
+      "es2017",
+      "dom"
+    ]
+    // ...
+  }
+}

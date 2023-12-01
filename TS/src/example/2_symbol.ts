@@ -22,7 +22,7 @@
 
     const s5 = Symbol('name')
     const info2: object = {
-        [s5]: 'zzx',
+        [s5]: 'zzx', 
         age: 213,
         asd: '123'
     }

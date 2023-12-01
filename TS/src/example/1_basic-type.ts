@@ -6,7 +6,7 @@ bool = false
 
 // 数值类型
 let num: number = 123;
-
+ 
 num = 0b11111011; // 二进制
 
 num = 0o173; // 八进制

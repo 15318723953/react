@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="app">
+
+</div>
+
+<body>
+
+</body>
+<script type="module">
+    import { reactive } from './reactive.js'
+    import { computed } from './computed.js'
+    window.a = reactive({mame:'a',age:18})
+    window.c = reactive({age:22,bar:123})
+    window.b = computed(()=>{
+        console.log('重新计算')
+        return a.age + 10
+    })
+   console.log(c)
+</script>
+
+</html>

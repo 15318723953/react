@@ -8,5 +8,6 @@
         "gitlens.codeLens.scopes": [
             "document"
         ]
-    }
+    },
+    "liveServer.settings.port": 5501
 }
