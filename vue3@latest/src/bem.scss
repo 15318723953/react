@@ -1,0 +1,34 @@
+$namespcae: "zzx" !default;
+$block-sel: "-" !default;
+$elem-sel: "__" !default;
+$mod-sel: "--" !default;
+
+@mixin bfc {
+    height: 100%;
+    overflow: hidden;
+}
+
+@mixin b($block) {
+    $B: #{$namespcae + $block-sel + $block};
+    .#{$B} {
+        @content;
+    }
+}
+
+@mixin e($el) {
+    $selector: &;
+    @at-root {
+        #{$selector + $elem-sel + $el} {
+            @content;
+        }
+    }
+}
+
+@mixin m($m) {
+    $selector: &;
+    @at-root {
+        #{$selector + $mod-sel + $m} {
+            @content;
+        }
+    }
+}

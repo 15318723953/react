@@ -5,4 +5,9 @@
 <script setup lang='ts'>
 
 </script>
-<style scoped lang='scss' ></style>
+<style lang='scss' >
+  #app{
+    @include bfc;
+    width:100%;
+  }
+</style>
